@@ -72,8 +72,57 @@ cd api
 python -m app.seed
 ```
 
+## Deploy (FastAPI Cloud)
+
+The app lives in `api/`. Deploy from that folder, not the repo root.
+
+Cloud does **not** run your local Docker Postgres. Use [Neon](https://fastapicloud.com/docs/integrations/neon-integration/) or [Supabase](https://fastapicloud.com/docs/integrations/supabase-integration/) with the **pgvector** extension. On boot the API creates tables if they are missing.
+
+```fish
+cd api
+fastapi login
+# or: uv run fastapi login
+
+# After you connect Neon in the dashboard, DATABASE_URL is injected.
+fastapi cloud env set --secret GEMINI_API_KEY "your_key"
+fastapi cloud env set --secret GOOGLE_API_KEY "your_key"
+fastapi cloud env set --secret ADMIN_SECRET "a-long-random-string"
+fastapi cloud env set PORTFOLIO_URL "https://genuine-kleicha-d80d7d.netlify.app"
+fastapi cloud env set CHAT_MODEL "gemini-3.6-flash"
+fastapi cloud env set CORS_ORIGINS "https://genuine-kleicha-d80d7d.netlify.app"
+
+fastapi deploy
+```
+
+Seed **once** against the cloud database (45 Gemini embeds). Prefer local so the request does not time out:
+
+```fish
+cd api
+source .venv/bin/activate.fish
+# temporarily point DATABASE_URL in ../.env at the Neon URL (sslmode=require)
+python -m app.seed
+```
+
+Or after deploy:
+
+```fish
+curl -X POST https://YOUR-APP.fastapicloud.dev/v1/seed \
+  -H "X-Admin-Secret: your-admin-secret"
+```
+
+Check:
+
+```fish
+curl https://YOUR-APP.fastapicloud.dev/health
+```
+
+`db` should be `ok`. Then try `/v1/chat`.
+
+Do not commit `.env`. Keep `ADMIN_SECRET` long; `/v1/reset` wipes the database.
+
 ## Notes
 
 - The website stays static. This API is the live source for chat.
 - Do not commit `.env`.
-- Default port is `8000` (`PORT` in `.env`).
+- Default local port is `8000` (`PORT` in `.env`).
+- FastAPI Cloud entrypoint is `app.main:app` (`api/pyproject.toml`).

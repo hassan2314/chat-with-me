@@ -1,0 +1,14 @@
+[project]
+name = "portfolio-chat-api"
+version = "0.1.0"
+description = "Recruiter chat API for Hassan Ahmed's portfolio"
+requires-python = ">=3.12"
+dependencies = [
+    "google-genai",
+    "psycopg[binary]",
+    "python-dotenv",
+    "fastapi[standard]",
+]
+
+[tool.fastapi]
+entrypoint = "app.main:app"

@@ -1,4 +1,5 @@
 import os
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -7,6 +8,7 @@ from fastapi.responses import StreamingResponse
 from app.chat import answer_question, stream_answer
 from app.db import ping_db
 from app.match_jd import match_job_description
+from app.migrate import apply_schema
 from app.schemas import (
     ChatRequest,
     ChatResponse,
@@ -45,11 +47,17 @@ def require_admin(x_admin_secret: str | None) -> None:
         raise HTTPException(status_code=401, detail="invalid admin secret")
 
 
-app = FastAPI(title="Hassan Portfolio Chat API")
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    apply_schema()
+    yield
+
+
+app = FastAPI(title="Hassan Portfolio Chat API", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=cors_origins(),
-    allow_origin_regex=r"https://.*\.(netlify\.app|netlify\.com)",
+    allow_origin_regex=r"https://.*\.(netlify\.app|netlify\.com|fastapicloud\.dev)",
     allow_methods=["*"],
     allow_headers=["*"],
 )
