@@ -1,0 +1,4 @@
+google-genai
+psycopg[binary]
+python-dotenv
+fastapi[standard]
