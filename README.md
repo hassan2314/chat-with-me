@@ -74,12 +74,12 @@ python -m app.seed
 
 ## Deploy (FastAPI Cloud)
 
-The app lives in `api/`. Deploy from that folder, not the repo root.
+Deploy from the **repo root** (Cloud looks for `main.py` there). `main.py` loads the real app from `api/`.
 
 Cloud does **not** run your local Docker Postgres. Use [Neon](https://fastapicloud.com/docs/integrations/neon-integration/) or [Supabase](https://fastapicloud.com/docs/integrations/supabase-integration/) with the **pgvector** extension. On boot the API creates tables if they are missing.
 
 ```fish
-cd api
+cd /home/hassan/Documents/dev/chat-with-me
 fastapi login
 # or: uv run fastapi login
 
@@ -125,4 +125,4 @@ Do not commit `.env`. Keep `ADMIN_SECRET` long; `/v1/reset` wipes the database.
 - The website stays static. This API is the live source for chat.
 - Do not commit `.env`.
 - Default local port is `8000` (`PORT` in `.env`).
-- FastAPI Cloud entrypoint is `app.main:app` (`api/pyproject.toml`).
+- FastAPI Cloud entrypoint is repo-root `main.py` (`main:app`).
