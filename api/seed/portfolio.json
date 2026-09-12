@@ -1,0 +1,269 @@
+{
+  "about": [
+    {
+      "slug": "bio",
+      "title": "About Hassan",
+      "body": "Hassan Ahmed is a Full Stack Developer in Islamabad, Pakistan. He builds production platforms with Next.js, NestJS, and PostgreSQL — REST APIs, secure auth, AI service integration, and admin tooling. Current work includes products serving 50,000+ users.",
+      "extra": {
+        "role": "Full Stack Developer",
+        "location": "Islamabad, Pakistan"
+      }
+    },
+    {
+      "slug": "pitch",
+      "title": "Why hire Hassan",
+      "body": "Hire Hassan when you need someone who owns backends and admin tools in production, not only tutorials. At Digital Matters he owns the NestJS + PostgreSQL + Prisma backend and Next.js admin for ReadMaududi (50,000+ readers), including OCR/content pipelines, App Store and Play billing, and LLM APIs for chat, search, and summarization. He also architected 25+ NestJS modules for a bilingual national non-profit platform (CMS, page builder, donations, membership) with Docker and PM2. He already shipped a recruiter-facing RAG stack in Acme Docs Copilot (FastAPI, pgvector, Gemini).",
+      "extra": {}
+    },
+    {
+      "slug": "availability",
+      "title": "Availability",
+      "body": "Based in Islamabad, Pakistan. Open to full-stack roles focused on NestJS, Next.js, and PostgreSQL. Happy to discuss remote or hybrid. Reach out by email or LinkedIn to talk timelines.",
+      "extra": {}
+    },
+    {
+      "slug": "contact",
+      "title": "Contact",
+      "body": "Email hassan87691@gmail.com. Phone +92 342 0042947. Islamabad, Pakistan. GitHub hassan2314. Resume is on the portfolio site.",
+      "extra": {
+        "email": "hassan87691@gmail.com",
+        "phone": "+92 342 0042947",
+        "github": "https://github.com/hassan2314",
+        "linkedin": "https://www.linkedin.com/in/hassan-ahmed-1595b12a6/",
+        "resume": "https://genuine-kleicha-d80d7d.netlify.app/Hassan_Ahmed_Resume.pdf"
+      }
+    },
+    {
+      "slug": "work_style",
+      "title": "What Hassan owns",
+      "body": "Typical ownership: NestJS REST APIs, JWT/RBAC, Postgres with Prisma or Sequelize, Next.js admin panels, AWS S3 media, OCR/ingest pipelines, and wiring external LLM APIs into production. Comfortable shipping Dockerized services with PM2.",
+      "extra": {}
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "institution": "National University of Modern Languages (NUML), Islamabad",
+      "start_year": 2021,
+      "end_year": 2025,
+      "description": "Computer science program focused on software engineering, databases, and modern full-stack web development.",
+      "coursework": [
+        "Data Structures and Algorithms",
+        "Database Management Systems",
+        "Web Development"
+      ],
+      "achievements": [
+        "Final Year Project: 3D fabric design studio with Three.js (Stitch and Style)",
+        "Completed multiple full-stack internships in industry"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "title": "Full Stack Developer",
+      "company": "Digital Matters",
+      "location": "Islamabad, Pakistan",
+      "start_label": "Sep 2025",
+      "end_label": "Present",
+      "highlights": [],
+      "technologies": [
+        "Next.js",
+        "NestJS",
+        "PostgreSQL",
+        "Prisma",
+        "Sequelize",
+        "JWT",
+        "AWS S3",
+        "Document AI",
+        "Docker"
+      ],
+      "projects": [
+        {
+          "name": "ReadMaududi — Digital Library Platform (50,000+ readers)",
+          "url": "https://readmaududi.com/",
+          "bullets": [
+            "Build and own the backend (NestJS, PostgreSQL, Prisma, JWT auth) and Next.js admin panel of a digital library serving 50,000+ readers, with REST APIs and full content management for books, authors, categories, and publishers.",
+            "Developed content ingestion and OCR pipelines (Google Document AI, AWS S3) to digitize and publish book content, and implemented in-app subscriptions with Apple App Store and Google Play billing.",
+            "Integrated external AI services into production APIs and admin tools to power AI chat, search, and summarization features.",
+            "Optimized browsing with server-side pagination, multi-criteria filtering, and database indexing on frequently queried columns."
+          ]
+        },
+        {
+          "name": "Official Web Platform — National Non-Profit Organization",
+          "url": null,
+          "bullets": [
+            "Building the official bilingual (English/Urdu with RTL support) web platform of a large national non-profit organization using Next.js 15, React 19, NestJS, Sequelize, and PostgreSQL.",
+            "Architected a modular backend of 25+ NestJS modules — custom CMS with post revisions, dynamic page builder, events, campaigns, donations, and membership registration — secured with JWT and role-based access control.",
+            "Implemented a media pipeline with AWS S3 presigned uploads and on-the-fly image optimization (Sharp), plus response caching and compression for high-traffic performance.",
+            "Built interactive frontend features including a d3-geo regional map, rich-text editing, localized routing, and SEO with dynamic sitemaps; containerized with Docker and deployed with PM2."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Full Stack Intern",
+      "company": "Red Buffer",
+      "location": "Islamabad, Pakistan",
+      "start_label": "Jun 2025",
+      "end_label": "Aug 2025",
+      "highlights": [],
+      "technologies": ["React", "Node.js", "FastAPI", "Gemini", "Groq", "Hugging Face"],
+      "projects": [
+        {
+          "name": null,
+          "url": null,
+          "bullets": [
+            "Built an AI text summarization tool (React, Node.js, FastAPI) integrating Hugging Face transformer models with Gemini and Groq LLM endpoints, secured with JWT authentication and real-time response handling."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Web Developer Intern",
+      "company": "Elites Digital Marketing",
+      "location": "Islamabad, Pakistan",
+      "start_label": "Sep 2024",
+      "end_label": "Feb 2025",
+      "highlights": [],
+      "technologies": ["HTML", "CSS", "JavaScript", "SEO"],
+      "projects": [
+        {
+          "name": null,
+          "url": null,
+          "bullets": [
+            "Developed responsive landing pages and marketing microsites (HTML, CSS, JavaScript) with SEO-driven UI improvements, and handled production deployments."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Software Developer Intern",
+      "company": "Pakistan Post",
+      "location": "Islamabad, Pakistan",
+      "start_label": "Jun 2023",
+      "end_label": "Aug 2023",
+      "highlights": [],
+      "technologies": ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+      "projects": [
+        {
+          "name": null,
+          "url": null,
+          "bullets": [
+            "Contributed to digitizing branch operations (parcel records, staff screens) with React, Node.js, and MongoDB, implementing CRUD workflows with authentication and role-based access."
+          ]
+        }
+      ]
+    }
+  ],
+  "skills": [
+    { "group_name": "Languages", "name": "JavaScript", "level": 90 },
+    { "group_name": "Languages", "name": "TypeScript", "level": 88 },
+    { "group_name": "Languages", "name": "SQL", "level": 82 },
+    { "group_name": "Languages", "name": "HTML / CSS", "level": 90 },
+    { "group_name": "Frontend", "name": "Next.js", "level": 88 },
+    { "group_name": "Frontend", "name": "React", "level": 90 },
+    { "group_name": "Frontend", "name": "Tailwind CSS", "level": 85 },
+    { "group_name": "Frontend", "name": "React Query", "level": 80 },
+    { "group_name": "Frontend", "name": "Framer Motion", "level": 75 },
+    { "group_name": "Backend", "name": "NestJS", "level": 88 },
+    { "group_name": "Backend", "name": "Node.js", "level": 88 },
+    { "group_name": "Backend", "name": "REST APIs", "level": 90 },
+    { "group_name": "Backend", "name": "JWT / RBAC", "level": 85 },
+    { "group_name": "Backend", "name": "Swagger", "level": 80 },
+    { "group_name": "Databases & ORMs", "name": "PostgreSQL", "level": 88 },
+    { "group_name": "Databases & ORMs", "name": "Prisma", "level": 85 },
+    { "group_name": "Databases & ORMs", "name": "Sequelize", "level": 82 },
+    { "group_name": "Databases & ORMs", "name": "MongoDB", "level": 80 },
+    { "group_name": "AI Integration", "name": "LLM APIs (Gemini / Groq)", "level": 82 },
+    { "group_name": "AI Integration", "name": "Google Document AI", "level": 80 },
+    { "group_name": "AI Integration", "name": "Hugging Face", "level": 75 },
+    { "group_name": "AI Integration", "name": "FastAPI Integration", "level": 72 },
+    { "group_name": "Tools & DevOps", "name": "Git", "level": 88 },
+    { "group_name": "Tools & DevOps", "name": "Docker", "level": 78 },
+    { "group_name": "Tools & DevOps", "name": "AWS S3", "level": 82 },
+    { "group_name": "Tools & DevOps", "name": "PM2 / Vercel", "level": 80 }
+  ],
+  "projects": [
+    {
+      "title": "ReadMaududi",
+      "subtitle": "Digital Library · 50,000+ readers",
+      "description": "Own the NestJS backend and Next.js admin panel for a digital library serving 50,000+ readers. Built REST APIs, JWT auth, OCR/content pipelines (Google Document AI, AWS S3), Apple & Google Play subscriptions, and AI chat/search/summarization by integrating external LLM services into production APIs.",
+      "technologies": ["NestJS", "Next.js", "PostgreSQL", "Prisma", "JWT", "Document AI", "AWS S3", "AI APIs"],
+      "github_url": "https://github.com/hassan2314",
+      "live_url": "https://www.readmaududi.com/",
+      "featured": true
+    },
+    {
+      "title": "National Non-Profit Web Platform",
+      "subtitle": "Bilingual CMS · Next.js + NestJS",
+      "description": "Official bilingual (English/Urdu, RTL) web platform for a large national non-profit. Architected 25+ NestJS modules — CMS with revisions, dynamic page builder, events, campaigns, donations, membership — plus AWS S3 media, Sharp image optimization, d3-geo maps, Docker, and PM2 deployments.",
+      "technologies": ["Next.js 15", "React 19", "NestJS", "Sequelize", "PostgreSQL", "AWS S3", "Docker", "Swagger"],
+      "github_url": "https://github.com/hassan2314",
+      "live_url": null,
+      "featured": true
+    },
+    {
+      "title": "Acme Docs Copilot",
+      "subtitle": "Multi-Agent RAG Knowledge Assistant",
+      "description": "Internal knowledge assistant with a FastAPI API and React UI. A Google ADK multi-agent team (coordinator, Q&A, summarizer) searches Postgres + pgvector and returns grounded answers with citations. Ingest is a chunk–embed–upsert pipeline; questions and summaries are routed to specialized agents.",
+      "technologies": ["FastAPI", "Google ADK", "PostgreSQL", "pgvector", "Gemini", "React", "Docker"],
+      "github_url": "https://github.com/hassan2314/co-pilot",
+      "live_url": "https://acme-copilot.netlify.app/",
+      "featured": false
+    },
+    {
+      "title": "Stitch and Style",
+      "subtitle": "3D Custom Fabric Design Studio (FYP)",
+      "description": "3D clothing customization platform with real-time previews, dynamic fabric selection, designer commission calculation, order placement, and Three.js visualization.",
+      "technologies": ["React", "Node.js", "MongoDB", "Three.js"],
+      "github_url": "https://github.com/Has41/FYP-Project-Fabric",
+      "live_url": null,
+      "featured": false
+    },
+    {
+      "title": "Next Video",
+      "subtitle": "Video Sharing Platform",
+      "description": "Video-sharing platform with channel-based video management, NextAuth session-based access control, and optimized media upload and delivery via ImageKit.",
+      "technologies": ["Next.js 15", "React 19", "TypeScript", "MongoDB", "NextAuth.js", "ImageKit"],
+      "github_url": "https://github.com/hassan2314/next-video",
+      "live_url": "https://next-video-2hm2.vercel.app/",
+      "featured": false
+    },
+    {
+      "title": "MegaBlog",
+      "subtitle": "Modern Blog Platform",
+      "description": "Blogging platform with user authentication, rich-text editing, image uploads, and post management on Appwrite backend services.",
+      "technologies": ["React", "Vite", "Appwrite", "TinyMCE", "Tailwind CSS"],
+      "github_url": "https://github.com/hassan2314/Blog",
+      "live_url": "https://timely-gaufre-3a882a.netlify.app/",
+      "featured": false
+    },
+    {
+      "title": "AI Text Summarizer",
+      "subtitle": "NLP Application",
+      "description": "Full-stack summarization tool converting long text into concise bullet points. FastAPI backend with Gemini and Groq LLM endpoints, plus JWT-secured React client for real-time summaries.",
+      "technologies": ["React", "Node.js", "FastAPI", "Gemini", "Groq"],
+      "github_url": "https://github.com/hassan2314/Summarizer_Frontend",
+      "live_url": "https://github.com/hassan2314/Summarizer-AI",
+      "featured": false
+    },
+    {
+      "title": "ChatAI",
+      "subtitle": "AI Chat Application",
+      "description": "Lightweight AI chat app using Next.js 15 + React 19 with Groq API integration, Markdown rendering, and syntax highlighting.",
+      "technologies": ["Next.js", "Groq", "React", "MUI"],
+      "github_url": "https://github.com/hassan2314/chatai",
+      "live_url": "https://chat-ai-nu-topaz.vercel.app/",
+      "featured": false
+    },
+    {
+      "title": "Next School",
+      "subtitle": "Educational Platform",
+      "description": "Modern educational platform using Next.js 15 and React 19 with Tailwind CSS v4 and Framer Motion for smooth UI animations and responsive layouts.",
+      "technologies": ["Next.js 15", "React 19", "Tailwind CSS v4", "Framer Motion", "TypeScript"],
+      "github_url": "https://github.com/hassan2314/next-school",
+      "live_url": "https://next-school-pi.vercel.app/",
+      "featured": false
+    }
+  ]
+}
