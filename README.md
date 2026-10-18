@@ -76,14 +76,17 @@ python -m app.seed
 
 Deploy from the **repo root** (Cloud looks for `main.py` there). `main.py` loads the real app from `api/`.
 
-Cloud does **not** run your local Docker Postgres. Use [Neon](https://fastapicloud.com/docs/integrations/neon-integration/) or [Supabase](https://fastapicloud.com/docs/integrations/supabase-integration/) with the **pgvector** extension. On boot the API creates tables if they are missing.
+Cloud does **not** run your local Docker Postgres. Use [Supabase](https://supabase.com/dashboard) (or [Neon](https://fastapicloud.com/docs/integrations/neon-integration/)) with the **pgvector** extension. On boot the API creates tables if they are missing.
+
+This repo’s Supabase project: **chat-with-me** (`jzzvivgngfyivzwrdaub`, `ap-south-1`). Schema + pgvector are already applied. Copy the DB URL from [Database settings](https://supabase.com/dashboard/project/jzzvivgngfyivzwrdaub/settings/database) (use the URI with `sslmode=require`).
 
 ```fish
 cd /home/hassan/Documents/dev/chat-with-me
 fastapi login
 # or: uv run fastapi login
 
-# After you connect Neon in the dashboard, DATABASE_URL is injected.
+# Point Cloud at Supabase (URI from dashboard; keep sslmode=require)
+fastapi cloud env set --secret DATABASE_URL "postgresql://postgres....?sslmode=require"
 fastapi cloud env set --secret GEMINI_API_KEY "your_key"
 fastapi cloud env set --secret GOOGLE_API_KEY "your_key"
 fastapi cloud env set --secret ADMIN_SECRET "a-long-random-string"
@@ -99,7 +102,7 @@ Seed **once** against the cloud database (45 Gemini embeds). Prefer local so the
 ```fish
 cd api
 source .venv/bin/activate.fish
-# temporarily point DATABASE_URL in ../.env at the Neon URL (sslmode=require)
+# temporarily point DATABASE_URL in ../.env at the Supabase URL (sslmode=require)
 python -m app.seed
 ```
 

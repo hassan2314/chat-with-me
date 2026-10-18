@@ -12,6 +12,9 @@ load_dotenv(ROOT / ".env")
 @contextmanager
 def get_conn():
     with psycopg.connect(os.environ["DATABASE_URL"]) as conn:
+        # pgvector lives in `extensions` on Supabase; keep local Docker working too.
+        with conn.cursor() as cur:
+            cur.execute("SET search_path TO public, extensions")
         yield conn
 
 

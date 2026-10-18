@@ -3,7 +3,8 @@
 from app.db import get_conn
 
 STATEMENTS = (
-    "CREATE EXTENSION IF NOT EXISTS vector",
+    # Supabase installs pgvector in the `extensions` schema.
+    "CREATE EXTENSION IF NOT EXISTS vector WITH SCHEMA extensions",
     """
     DO $$ BEGIN
       CREATE TYPE record_category AS ENUM
