@@ -35,6 +35,8 @@ class MatchJdResponse(BaseModel):
 class HealthResponse(BaseModel):
     api: str
     db: str
+    schema_status: str = "pending"
+    llm: str = "auto"
 
 
 class SuggestionsResponse(BaseModel):

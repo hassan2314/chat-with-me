@@ -1,4 +1,3 @@
-import os
 import time
 from typing import Any
 
@@ -7,6 +6,7 @@ from google.genai import errors as genai_errors
 from google.genai import types
 
 from app.db import get_conn
+from app.settings import gemini_api_key, llm_mode
 
 EMBED_MODEL = "gemini-embedding-001"
 EMBED_DIM = 768
@@ -17,7 +17,10 @@ _client = None
 def gemini() -> genai.Client:
     global _client
     if _client is None:
-        _client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+        key = gemini_api_key()
+        if not key:
+            raise RuntimeError("GEMINI_API_KEY is not set")
+        _client = genai.Client(api_key=key)
     return _client
 
 
@@ -86,6 +89,10 @@ def search(
     categories: list[str] | None = None,
     k: int = 8,
 ) -> list[dict[str, Any]]:
+    if llm_mode() == "mock":
+        from app.mock_llm import lexical_search
+
+        return lexical_search(query, categories, k)
     qvec = embed([query], task_type="RETRIEVAL_QUERY")[0]
     literal = as_vector(qvec)
     sql = """

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>__TITLE__</title>
+  <meta name="description" content="Ask Hassan Ahmed about his experience, projects, and skills. Answers come from his portfolio record." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,640&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/chat.css" />
+</head>
+<body class="layout-__LAYOUT__">
+  <header class="top">
+    <a class="brand" href="__PORTFOLIO__">
+      <span class="mark" aria-hidden="true">HA</span>
+      <span class="brand-text">
+        <strong>Hassan Ahmed</strong>
+        <em>Full Stack Developer · Islamabad</em>
+      </span>
+    </a>
+    <nav>
+      <a href="__PORTFOLIO__">Portfolio</a>
+      <a href="/docs">API</a>
+      <a href="/examples/embed.html">Embed</a>
+    </nav>
+  </header>
+  <main>
+    <section class="dossier">
+      <p class="kicker">Portfolio chat</p>
+      <h1>Ask about the work.</h1>
+      <p>Answers come from Hassan’s experience, projects, skills, and education. If it is not in the record, the assistant says so.</p>
+      <p class="dossier-links">
+        <a href="__PORTFOLIO__">Open the portfolio</a>
+        <a href="/examples/embed.html">See the embed</a>
+      </p>
+    </section>
+    <section class="chat" data-chat>
+      <div class="chat-head">
+        <p class="kicker" data-title>Ask Hassan</p>
+        <p class="sub" data-subtitle></p>
+      </div>
+      <div class="scroll" data-log></div>
+      <form data-form>
+        <label class="sr" for="question">Question</label>
+        <textarea id="question" data-input rows="1" maxlength="2000" required></textarea>
+        <button type="submit">Ask</button>
+      </form>
+    </section>
+  </main>
+  <script type="application/json" id="chat-config">__CONFIG__</script>
+  <script src="/static/chat.js"></script>
+</body>
+</html>

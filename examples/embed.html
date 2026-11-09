@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hassan Ahmed — selected work</title>
+  <style>
+    :root { color-scheme: light; }
+    body {
+      margin: 0;
+      background: #f7f7f5;
+      color: #1b1b1b;
+      font-family: Georgia, "Iowan Old Style", serif;
+    }
+    main { max-width: 640px; margin: 0; padding: 72px 48px 120px 7vw; }
+    .kicker {
+      margin: 0 0 10px;
+      font-family: "Segoe UI", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #8a6232;
+    }
+    h1 { margin: 0 0 12px; font-weight: 560; font-size: 52px; letter-spacing: -0.03em; }
+    .lede { margin: 0 0 28px; font-size: 20px; line-height: 1.45; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    li { padding: 14px 0; border-top: 1px solid #e4e0d8; line-height: 1.45; }
+    li strong { font-family: "Segoe UI", sans-serif; font-size: 14px; letter-spacing: 0.02em; }
+    .note { margin-top: 28px; color: #5c584f; font-family: "Segoe UI", sans-serif; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="kicker">Selected work</p>
+    <h1>Hassan Ahmed</h1>
+    <p class="lede">Full stack developer in Islamabad. I build production platforms with Next.js, NestJS, and PostgreSQL.</p>
+    <ul>
+      <li><strong>ReadMaududi.</strong> Digital library for 50,000+ readers. NestJS, PostgreSQL, and a Next.js admin.</li>
+      <li><strong>National non-profit platform.</strong> Bilingual CMS with 25+ NestJS modules, donations, and membership.</li>
+      <li><strong>Acme Docs Copilot.</strong> A recruiter-facing RAG assistant on FastAPI, pgvector, and Gemini.</li>
+    </ul>
+    <p class="note">The button in the corner loads the chat widget. It only answers from the portfolio record.</p>
+  </main>
+  <script
+    src="/widget.js"
+    data-title="Ask Hassan"
+    data-subtitle="Experience, projects, and skills"
+    data-accent="#0f5c45"
+    data-placeholder="Ask about NestJS or a project"
+    async
+  ></script>
+</body>
+</html>
