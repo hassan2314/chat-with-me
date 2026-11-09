@@ -1,20 +1,22 @@
-import os
 from contextlib import contextmanager
-from pathlib import Path
 
 import psycopg
-from dotenv import load_dotenv
 
-ROOT = Path(__file__).resolve().parents[2]
-load_dotenv(ROOT / ".env")
+from app.settings import database_url, db_connect_timeout
 
 
 @contextmanager
 def get_conn():
-    with psycopg.connect(os.environ["DATABASE_URL"]) as conn:
-        # pgvector lives in `extensions` on Supabase; keep local Docker working too.
+    # prepare_threshold=None keeps session state working through a transaction pooler.
+    # search_path covers pgvector in `extensions` (Supabase) and in public (local Docker).
+    with psycopg.connect(
+        database_url(),
+        connect_timeout=db_connect_timeout(),
+        prepare_threshold=None,
+    ) as conn:
         with conn.cursor() as cur:
             cur.execute("SET search_path TO public, extensions")
+            cur.execute("SET statement_timeout = '15s'")
         yield conn
 
 

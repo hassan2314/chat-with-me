@@ -2,6 +2,7 @@ from google.genai import types
 
 from app.chat import CHAT_MODEL, citations_from
 from app.rag import gemini, search
+from app.settings import llm_mode
 
 SYSTEM = """You compare a job description to Hassan Ahmed’s retrieved career records.
 Be honest. Do not invent skills or jobs.
@@ -19,6 +20,10 @@ If the JD asks for something absent from the records, list it under Not on recor
 
 def match_job_description(jd: str) -> dict:
     rows = search(jd, categories=["experience", "skill", "project"], k=10)
+    if llm_mode() == "mock":
+        from app.mock_llm import mock_match
+
+        return {"summary": mock_match(rows), "citations": citations_from(rows)}
     context = "\n\n---\n\n".join(
         f"[{row['category']}] {row['title']}\n{row['content']}" for row in rows
     ) or "(no records)"

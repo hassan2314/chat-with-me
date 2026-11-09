@@ -11,7 +11,8 @@ from app.compose import (
     skill_text,
 )
 from app.db import get_conn
-from app.rag import embed, upsert_embedding
+from app.rag import EMBED_DIM, embed, upsert_embedding
+from app.settings import llm_mode
 
 SEED_PATH = Path(__file__).resolve().parents[1] / "seed" / "portfolio.json"
 
@@ -37,7 +38,10 @@ def wipe() -> None:
 
 
 def _embed_row(category: str, table: str, source_id, title: str, content: str) -> None:
-    vector = embed([content], task_type="RETRIEVAL_DOCUMENT")[0]
+    if llm_mode() == "mock":
+        vector = [0.0] * EMBED_DIM
+    else:
+        vector = embed([content], task_type="RETRIEVAL_DOCUMENT")[0]
     upsert_embedding(category, table, str(source_id), title, content, vector)
 
 

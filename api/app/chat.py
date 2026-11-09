@@ -1,5 +1,8 @@
 import json
+import logging
 import os
+import re
+import time
 from collections.abc import Iterator
 
 from google.genai import types
@@ -7,6 +10,9 @@ from google.genai import types
 from app.classify import classify
 from app.db import get_conn
 from app.rag import gemini, search
+from app.settings import llm_mode, mock_stream_delay
+
+log = logging.getLogger("portfolio.chat")
 
 SITE = os.getenv(
     "PORTFOLIO_URL",
@@ -159,6 +165,10 @@ def _sse(event: str, data: dict) -> str:
 def _generate(question: str, rows: list[dict]) -> str:
     if not rows:
         return EMPTY_ANSWER
+    if llm_mode() == "mock":
+        from app.mock_llm import mock_answer
+
+        return mock_answer(question, rows)
 
     response = gemini().models.generate_content(
         model=CHAT_MODEL,
@@ -180,12 +190,27 @@ def answer_question(question: str) -> dict:
     }
 
 
+def _yield_text(text: str) -> Iterator[str]:
+    delay = mock_stream_delay() if llm_mode() == "mock" else 0.0
+    parts = re.findall(r"\S+\s*", text) or [text]
+    for part in parts:
+        if delay:
+            time.sleep(delay)
+        yield _sse("token", {"t": part})
+
+
 def stream_answer(question: str) -> Iterator[str]:
     try:
         categories, rows = _retrieve(question)
         yield _sse("meta", _meta(categories, rows))
         if not rows:
             yield _sse("token", {"t": EMPTY_ANSWER})
+            yield _sse("done", {})
+            return
+        if llm_mode() == "mock":
+            from app.mock_llm import mock_answer
+
+            yield from _yield_text(mock_answer(question, rows))
             yield _sse("done", {})
             return
 
@@ -199,5 +224,7 @@ def stream_answer(question: str) -> Iterator[str]:
                 yield _sse("token", {"t": text})
         yield _sse("done", {})
     except Exception as exc:
-        yield _sse("error", {"detail": str(exc)})
+        # Driver errors can echo a connection string. Keep that off the wire.
+        log.warning("stream failed: %s", exc.__class__.__name__)
+        yield _sse("error", {"detail": "The assistant could not answer just now."})
         yield _sse("done", {})
